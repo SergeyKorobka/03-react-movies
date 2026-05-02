@@ -16,6 +16,8 @@ export default function MovieModal({ movie, onClose }: MovieModalProps) {
   }
 
   useEffect(() => {
+    document.body.style.overflow = 'hidden';
+
     function onKeydown(e: KeyboardEvent) {
       if (e.code.toLowerCase() === 'escape') {
         onClose();
@@ -26,6 +28,7 @@ export default function MovieModal({ movie, onClose }: MovieModalProps) {
 
     return () => {
       document.removeEventListener('keydown', onKeydown);
+      document.body.style.overflow = 'auto';
     };
   }, [onClose]);
 

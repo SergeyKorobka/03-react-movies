@@ -18,7 +18,7 @@ export default function App() {
   async function onSubmit(query: string) {
     try {
       setStatus('loading');
-      const { results } = await getAllMovies(query);
+      const results = await getAllMovies(query);
 
       if (!results.length) {
         toast.error('No movies found for your request.');

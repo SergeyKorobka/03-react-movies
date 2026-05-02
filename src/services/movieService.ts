@@ -15,12 +15,12 @@ const apiMovie = axios.create({
   },
 });
 
-export async function getAllMovies(query: string) {
+export async function getAllMovies(query: string): Promise<Movie[]> {
   const { data } = await apiMovie.get<getAllMoviesRes>('/3/search/movie', {
     params: {
       query,
     },
   });
 
-  return data;
+  return data.results;
 }
